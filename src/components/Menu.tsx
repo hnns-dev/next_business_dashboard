@@ -1,12 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
+import {
+  FaHouse,
+  FaUser,
+  FaGear,
+  FaArrowRightFromBracket,
+  IconType,
+} from "react-icons/fa6";
+import { title } from "process";
 
-const menuItems = [
+// Typ für ein Menüelement
+interface MenuItem {
+  icon: IconType | string; // Icon kann entweder eine Icon-Komponente oder ein Bildpfad sein
+  label: string;
+  href: string;
+  visible: string[];
+}
+
+// Typ für eine Menügruppe
+interface MenuGroup {
+  title: string;
+  items: MenuItem[];
+}
+
+// Die Menüstruktur
+const menuItems: MenuGroup[] = [
   {
     title: "MENU",
     items: [
       {
-        icon: "/home.png",
+        icon: FaHouse,
         label: "Home",
         href: "/",
         visible: ["admin", "employer", "employee", "guest"],
@@ -19,56 +42,20 @@ const menuItems = [
       },
       {
         icon: "/employee.png",
-        label: "employee",
+        label: "Employee",
         href: "/list/empls",
         visible: ["admin", "employer"],
       },
       {
         icon: "/guest.png",
-        label: "Parents",
+        label: "Guest",
         href: "/list/parents",
         visible: ["admin", "employer"],
-      },
-      {
-        icon: "/subject.png",
-        label: "Subjects",
-        href: "/list/subjects",
-        visible: ["admin"],
-      },
-      {
-        icon: "/class.png",
-        label: "Classes",
-        href: "/list/classes",
-        visible: ["admin", "employer"],
-      },
-      {
-        icon: "/lesson.png",
-        label: "Lessons",
-        href: "/list/lessons",
-        visible: ["admin", "employer"],
-      },
-      {
-        icon: "/exam.png",
-        label: "Exams",
-        href: "/list/exams",
-        visible: ["admin", "employer", "employee", "guest"],
       },
       {
         icon: "/assignment.png",
         label: "Assignments",
         href: "/list/assignments",
-        visible: ["admin", "employer", "employee", "guest"],
-      },
-      {
-        icon: "/result.png",
-        label: "Results",
-        href: "/list/results",
-        visible: ["admin", "employer", "employee", "guest"],
-      },
-      {
-        icon: "/attendance.png",
-        label: "Attendance",
-        href: "/list/attendance",
         visible: ["admin", "employer", "employee", "guest"],
       },
       {
@@ -95,19 +82,19 @@ const menuItems = [
     title: "OTHER",
     items: [
       {
-        icon: "/profile.png",
+        icon: FaUser,
         label: "Profile",
         href: "/profile",
-        visible: ["admin", "Employer", "employee", "guest"],
+        visible: ["admin", "employer", "employee", "guest"],
       },
       {
-        icon: "/setting.png",
+        icon: FaGear,
         label: "Settings",
         href: "/settings",
         visible: ["admin", "employer", "employee", "guest"],
       },
       {
-        icon: "/logout.png",
+        icon: FaArrowRightFromBracket,
         label: "Logout",
         href: "/logout",
         visible: ["admin", "employer", "employee", "guest"],
@@ -116,22 +103,31 @@ const menuItems = [
   },
 ];
 
-const Menu = () => {
+const Menu: React.FC = () => {
   return (
-    <div className="menu">
-      {menuItems.map((i) => (
-        <div className="menu-section" key={i.title}>
-          <span className="menu-title">{i.title}</span>
+    <div className="mt-4 text-sm">
+      {menuItems.map((group) => (
+        <div className="flex flex-col gap-2" key={group.title}>
+          <span className="hidden lg:block text-zinc-400 font-light my-4">
+            {group.title}
+          </span>
           <div className="menu-items">
-            {i.items?.map((item) => (
+            {group.items.map((item) => (
               <div className="menu-item" key={item.label}>
-                <Link href={item.href}>
-                  <Image
-                    src={item.icon}
-                    alt={item.label}
-                    width={20}
-                    height={20}
-                  />
+                <Link
+                  href={item.href}
+                  className="flex items-center justify-center lg:justify-start gap-4 text-zinc-600 py-2"
+                >
+                  {typeof item.icon === "string" ? (
+                    <Image
+                      src={item.icon}
+                      alt={item.label}
+                      width={20}
+                      height={20}
+                    />
+                  ) : (
+                    <item.icon className="text-xl" />
+                  )}
                 </Link>
                 <span className="menu-label">{item.label}</span>
               </div>
