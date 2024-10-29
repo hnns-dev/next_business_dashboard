@@ -19,6 +19,23 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { ModeToggle } from "@/components/mode-toggle";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@radix-ui/react-separator";
+import { Input } from "@/components/ui/input";
 
 export default function RootLayout({
   children,
@@ -38,7 +55,26 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                <header className="flex h-16 shrink-0 items-center gap-2 justify-between">
+                  <div className="flex items-center gap-2 px-4">
+                    <SidebarTrigger className="-ml-1" />
+                    <Separator orientation="vertical" className="mr-2 h-4" />
+                    <Input
+                      className="w-full"
+                      type="search"
+                      placeholder="Search..."
+                    />
+                  </div>
+                  <div>
+                    <ModeToggle />
+                  </div>
+                </header>
+                {children}
+              </SidebarInset>
+            </SidebarProvider>
           </ThemeProvider>
         </body>
       </html>

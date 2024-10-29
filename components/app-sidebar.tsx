@@ -41,7 +41,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "dashboard",
       icon: LayoutDashboard,
       isActive: true,
       items: [
@@ -61,7 +61,7 @@ const data = {
     },
     {
       title: "Schedule",
-      url: "#",
+      url: "schedule",
       icon: CalendarCheck,
       items: [
         {
@@ -80,7 +80,7 @@ const data = {
     },
     {
       title: "Message",
-      url: "#",
+      url: "message",
       icon: MessagesSquare,
       items: [
         {
