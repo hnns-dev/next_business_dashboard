@@ -2,24 +2,26 @@
 
 import * as React from "react";
 import {
-  BookOpen,
-  Bot,
+  Boxes,
   CalendarCheck,
-  Command,
+  ChartLine,
+  FileQuestion,
+  FolderClosed,
   Frame,
+  HandCoins,
   LayoutDashboard,
   LifeBuoy,
   Map,
-  MessageSquare,
   MessagesSquare,
   PieChart,
   Send,
   Settings2,
-  SquareTerminal,
+  ShieldQuestion,
+  UserRound,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
+import { NavResources } from "@/components/nav-resources";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
@@ -32,7 +34,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-const data = {
+export const data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
@@ -46,16 +48,20 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Catrgory 01",
-          url: "#",
+          title: "Overview",
+          url: "overview",
         },
         {
-          title: "Catrgory 02",
-          url: "#",
+          title: "Analytics",
+          url: "analytics",
         },
         {
-          title: "Catrgory 03",
-          url: "#",
+          title: "Reports",
+          url: "reports",
+        },
+        {
+          title: "Goals",
+          url: "goals",
         },
       ],
     },
@@ -65,16 +71,20 @@ const data = {
       icon: CalendarCheck,
       items: [
         {
-          title: "Task",
-          url: "#",
+          title: "Tasks",
+          url: "tasks",
         },
         {
           title: "Meetings",
-          url: "#",
+          url: "meetings",
         },
         {
           title: "Events",
-          url: "#",
+          url: "events",
+        },
+        {
+          title: "Timleline",
+          url: "timeline",
         },
       ],
     },
@@ -85,69 +95,85 @@ const data = {
       items: [
         {
           title: "Inbox",
-          url: "#",
+          url: "inbox",
         },
         {
           title: "Unread",
-          url: "#",
+          url: "unread",
         },
         {
-          title: "Send",
-          url: "#",
+          title: "Sent",
+          url: "sent",
+        },
+        {
+          title: "Templates",
+          url: "templates",
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
+      title: "Projects",
+      url: "projects",
+      icon: FolderClosed,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Active",
+          url: "active",
+        },
+        {
+          title: "Planning",
+          url: "planning",
+        },
+        {
+          title: "Archive",
+          url: "archive",
         },
         {
           title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          url: "team",
         },
       ],
     },
   ],
-  navSecondary: [
+  navResources: [
     {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
+      title: "Products",
+      url: "products",
+      icon: Boxes,
+      isActive: true,
     },
     {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
+      title: "Costomers",
+      url: "costomers",
+      icon: UserRound,
+      isActive: true,
+    },
+    {
+      title: "Sales",
+      url: "sales",
+      icon: ChartLine,
+      isActive: true,
+    },
+    {
+      title: "Finance",
+      url: "finance",
+      icon: HandCoins,
+      isActive: true,
     },
   ],
-  projects: [
+
+  //Smaller Nav maybe later
+
+  navSecondary: [
     {
-      name: "Design Engineering",
+      title: "Maybe",
       url: "#",
-      icon: Frame,
+      icon: FileQuestion,
     },
     {
-      name: "Sales & Marketing",
+      title: "later",
       url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      icon: ShieldQuestion,
     },
   ],
 };
@@ -159,13 +185,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <a href="/">
                 <img
                   src="./logo.svg"
                   className="flex aspect-square size-8 items-center justify-center text-sidebar-primary-foreground mr-2 "
                 />
                 <div className="grid flex-1 text-left leading-tight">
-                  <span className="truncate font-extrabold text-xl ">
+                  <span className="truncate font-black text-2xl ">
                     PLANSHIFT
                   </span>
                 </div>
@@ -176,7 +202,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavResources items={data.navResources} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
