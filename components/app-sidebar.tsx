@@ -18,6 +18,7 @@ import {
   Settings2,
   ShieldQuestion,
   UserRound,
+  Users,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -145,7 +146,7 @@ export const data = {
     {
       title: "Costomers",
       url: "costomers",
-      icon: UserRound,
+      icon: Users,
       isActive: true,
     },
     {
