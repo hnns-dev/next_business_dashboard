@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,3 +7,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model Task {
+  id      Int      @id @default(autoincrement())
+  title   String
+  dueDate DateTime
+}
+
+model Meeting {
+  id    Int      @id @default(autoincrement())
+  title String
+  date  DateTime
+}
+
+model Event {
+  id    Int      @id @default(autoincrement())
+  title String
+  date  DateTime
+}
+
+model Timeline {
+  id    Int      @id @default(autoincrement())
+  title String
+  date  DateTime
+}
+
+model Product {
+  id       Int    @id @default(autoincrement())
+  name     String
+  category String
+  price    Float
+  Sale     Sale[]
+}
+
+model Customer {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+  Sale  Sale[]
+}
+
+model Sale {
+  id         Int      @id @default(autoincrement())
+  customerId Int
+  productId  Int
+  quantity   Int
+  date       DateTime
+  customer   Customer @relation(fields: [customerId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
+}
+
+model Finance {
+  id       Int    @id @default(autoincrement())
+  month    String
+  revenue  Float
+  expenses Float
+}

@@ -1,7 +1,7 @@
 services:
-  web:
-    build: .
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: testtest
     ports:
-      - "8000:5000"
-  redis:
-    image: "redis:alpine"
+      - "5432:5432"
