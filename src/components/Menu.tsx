@@ -1,87 +1,55 @@
+import Link from "next/link";
+import React from "react";
+import { Gauge } from "lucide-react";
+
 const menuItems = [
   {
     title: "MENU",
     items: [
       {
-        icon: "/home.png",
-        label: "Home",
+        icon: "/gauge.svg",
+        label: "Dashboard",
         href: "/",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/teacher.png",
-        label: "Teachers",
+        icon: "/calendar.svg",
+        label: "Calendar",
         href: "/list/teachers",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/student.png",
-        label: "Students",
+        icon: "/project.svg",
+        label: "Projects",
         href: "/list/students",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/parent.png",
-        label: "Parents",
+        icon: "/task.svg",
+        label: "Tasks",
         href: "/list/parents",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/subject.png",
-        label: "Subjects",
+        icon: "/customer.svg",
+        label: "Customer",
         href: "/list/subjects",
         visible: ["admin"],
       },
       {
-        icon: "/class.png",
-        label: "Classes",
-        href: "/list/classes",
-        visible: ["admin", "teacher"],
-      },
-      {
-        icon: "/lesson.png",
-        label: "Lessons",
-        href: "/list/lessons",
-        visible: ["admin", "teacher"],
-      },
-      {
-        icon: "/exam.png",
-        label: "Exams",
-        href: "/list/exams",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/assignment.png",
-        label: "Assignments",
+        icon: "/sales.svg",
+        label: "Sales",
         href: "/list/assignments",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/result.png",
-        label: "Results",
-        href: "/list/results",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/attendance.png",
-        label: "Attendance",
-        href: "/list/attendance",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/calendar.png",
-        label: "Events",
-        href: "/list/events",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: "/message.png",
+        icon: "/message.svg",
         label: "Messages",
         href: "/list/messages",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/announcement.png",
+        icon: "/announcement.svg",
         label: "Announcements",
         href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
@@ -92,19 +60,19 @@ const menuItems = [
     title: "OTHER",
     items: [
       {
-        icon: "/profile.png",
+        icon: "/profile.svg",
         label: "Profile",
         href: "/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/setting.png",
+        icon: "/settings.svg",
         label: "Settings",
         href: "/settings",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/logout.png",
+        icon: "/logout.svg",
         label: "Logout",
         href: "/logout",
         visible: ["admin", "teacher", "student", "parent"],
@@ -112,3 +80,29 @@ const menuItems = [
     ],
   },
 ];
+
+const Menu = () => {
+  return (
+    <div className="mt-4 text-sm">
+      {menuItems.map((i) => (
+        <div key={i.title} className="flex flex-col gap-2">
+          <span className="hidden lg:block text-zinc-400 font-light my-4">
+            {i.title}
+          </span>
+          {i.items.map((item) => (
+            <Link
+              href={"item.href"}
+              key={item.label}
+              className="flex gap-3 items-center justify-center lg:justify-start text-zinc-500 py-2"
+            >
+              <img src={item.icon} alt="" width={20} height={20} />
+              <span className="hidden lg:block">{item.label}</span>
+            </Link>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Menu;
