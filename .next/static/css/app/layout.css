@@ -619,6 +619,9 @@ video {
 .h-3\/4 {
   height: 75%;
 }
+.h-\[75\%\] {
+  height: 75%;
+}
 .w-4 {
   width: 1rem;
 }

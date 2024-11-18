@@ -6,18 +6,18 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 const data = [
   {
     name: "Total",
-    count: "10000",
+    count: 6000,
     fill: "white",
   },
   {
-    name: "Number 01",
-    count: "4321",
-    fill: "#E27734",
+    name: "Number 02",
+    count: 3345,
+    fill: "#2F4C2F",
   },
   {
-    name: "Number 02",
-    count: "2345",
-    fill: "#2F4C2F",
+    name: "Number 01",
+    count: 4321,
+    fill: "#E27734",
   },
 ];
 
@@ -30,7 +30,7 @@ const RadialChart = () => {
         <img src="/more.svg" />
       </div>
       {/* MIDDLE */}
-      <div className="w-full h-3/4">
+      <div className="w-full h-[75%]">
         <ResponsiveContainer>
           <RadialBarChart
             cx="50%"
@@ -53,7 +53,7 @@ const RadialChart = () => {
         </div>
         <div className="flex flex-col gap-1">
           <div className="w-5 h-5 rounded-full bg-mainGreen" />
-          <h1 className="font-bold">2.345</h1>
+          <h1 className="font-bold">3.345</h1>
           <h2 className="text-xs text-zinc-500">Number 02</h2>
         </div>
       </div>
