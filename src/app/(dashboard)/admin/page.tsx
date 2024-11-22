@@ -1,5 +1,7 @@
+import DiagramChart from "@/components/DiagramChart";
 import UserCard from "@/components/OverviewCard";
 import RadialChart from "@/components/RadialChart";
+import RevChart from "@/components/RevChart";
 
 const AdminPage = () => {
   return (
@@ -18,10 +20,14 @@ const AdminPage = () => {
           <div className="w-full lg:w-1/3 h-96">
             <RadialChart />
           </div>
-          <div className="w-full lg:w-2/3 h-96"></div>
+          <div className="w-full lg:w-2/3 h-96">
+            <RevChart />
+          </div>
         </div>
         {/* BOTTOM CHARTS */}
-        <div></div>
+        <div className="w-full h-[500px]">
+          <DiagramChart />
+        </div>
       </div>
       {/* RIGHT */}
       <div className="w-full lg:w-1/3"></div>
