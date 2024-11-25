@@ -90,11 +90,17 @@ const DiagramChart = () => {
           <Line
             type="monotone"
             dataKey="pv"
-            stroke="#2F4C2F"
+            stroke="#287F71"
             activeDot={{ r: 8 }}
             strokeWidth={4}
           />
-          <Line type="monotone" dataKey="uv" stroke="#E27734" strokeWidth={4} />
+          <Line
+            type="monotone"
+            dataKey="uv"
+            stroke="#eb862a"
+            activeDot={{ r: 8 }}
+            strokeWidth={4}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

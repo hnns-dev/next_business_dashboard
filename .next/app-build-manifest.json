@@ -3,6 +3,7 @@
     "/(dashboard)/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/(dashboard)/admin/page.css",
       "static/chunks/app/(dashboard)/admin/page.js"
     ],
     "/(dashboard)/layout": [

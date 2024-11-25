@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  font-family: "Inter", sans-serif !important;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-weight: 600;
+}
+.react-calendar__tile--active {
+  background-color: #f9dcaf !important;
+  color: black !important;
+  border-radius: 6px;
+}
+.react-calendar__tile--now {
+  background-color: #d5f2ea !important;
+  color: black;
+  border-radius: 6px;
+}

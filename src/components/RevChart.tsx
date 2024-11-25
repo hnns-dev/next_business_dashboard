@@ -78,7 +78,7 @@ const RevChart = () => {
           />
           <Bar
             dataKey="this"
-            fill="#2F4C2F"
+            fill="#287F71"
             legendType="circle"
             radius={[10, 10, 0, 0]}
           />

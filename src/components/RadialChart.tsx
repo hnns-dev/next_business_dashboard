@@ -12,7 +12,7 @@ const data = [
   {
     name: "Number 02",
     count: 3345,
-    fill: "#2F4C2F",
+    fill: "#287F71",
   },
   {
     name: "Number 01",
@@ -46,12 +46,12 @@ const RadialChart = () => {
       </div>
       {/* BOTTOM */}
       <div className="flex justify-center gap-16">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 items-center">
           <div className="w-5 h-5 rounded-full bg-mainOrange" />
           <h1 className="font-bold">4.321</h1>
           <h2 className="text-xs text-zinc-500">Number 01</h2>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 items-center">
           <div className="w-5 h-5 rounded-full bg-mainGreen" />
           <h1 className="font-bold">3.345</h1>
           <h2 className="text-xs text-zinc-500">Number 02</h2>

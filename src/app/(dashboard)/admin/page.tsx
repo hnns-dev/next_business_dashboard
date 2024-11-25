@@ -1,13 +1,15 @@
+import Announcements from "@/components/Announcements";
 import DiagramChart from "@/components/DiagramChart";
 import UserCard from "@/components/OverviewCard";
 import RadialChart from "@/components/RadialChart";
 import RevChart from "@/components/RevChart";
+import SmallCalendar from "@/components/SmallCalendar";
 
 const AdminPage = () => {
   return (
     <div className="p-4 flex gap-4 flex-col md:flex-row">
       {/* LEFT */}
-      <div className="w-full lg:w-2/3 flex flex-col gap-8">
+      <div className="w-full lg:w-2/3 flex flex-col gap-4">
         {/* CARDS */}
         <div className="flex gap-4 justify-between flex-wrap">
           <UserCard type={"Revenue per year"} />
@@ -30,7 +32,10 @@ const AdminPage = () => {
         </div>
       </div>
       {/* RIGHT */}
-      <div className="w-full lg:w-1/3"></div>
+      <div className="w-full lg:w-1/3 flex flex-col gap-8">
+        <SmallCalendar />
+        <Announcements />
+      </div>
     </div>
   );
 };
