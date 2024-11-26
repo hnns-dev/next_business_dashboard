@@ -9,15 +9,15 @@
 }
 
 .react-calendar__navigation__label__labelText {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 .react-calendar__tile--active {
   background-color: #f9dcaf !important;
   color: black !important;
-  border-radius: 6px;
+  border-radius: 6px !important;
 }
 .react-calendar__tile--now {
   background-color: #d5f2ea !important;
-  color: black;
-  border-radius: 6px;
+  color: black !important;
+  border-radius: 6px !important;
 }

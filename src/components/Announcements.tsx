@@ -5,7 +5,7 @@ const announcements = [
     id: 1,
     title: "Company Chirstmas Party",
     date: "20.12.2024",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    description: "Lorem ipsum dolor sit amet.",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const announcements = [
     id: 3,
     title: "Lorem ipsum dolor",
     date: "08.01.2025",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing",
   },
 ];
 

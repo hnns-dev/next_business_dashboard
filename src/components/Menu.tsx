@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Gauge } from "lucide-react";
+import { role } from "@/lib/data";
 
 const menuItems = [
   {
@@ -10,49 +10,55 @@ const menuItems = [
         icon: "/gauge.svg",
         label: "Dashboard",
         href: "/",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
       },
       {
         icon: "/calendar.svg",
         label: "Calendar",
-        href: "/list/teachers",
-        visible: ["admin", "teacher"],
+        href: "/list/calendar",
+        visible: ["admin", "employee"],
       },
       {
         icon: "/project.svg",
         label: "Projects",
-        href: "/list/students",
-        visible: ["admin", "teacher"],
+        href: "/list/projects",
+        visible: ["admin", "employee"],
       },
       {
         icon: "/task.svg",
         label: "Tasks",
-        href: "/list/parents",
-        visible: ["admin", "teacher"],
+        href: "/list/tasks",
+        visible: ["admin", "employee"],
       },
       {
         icon: "/customer.svg",
         label: "Customer",
-        href: "/list/subjects",
-        visible: ["admin"],
+        href: "/list/customer",
+        visible: ["admin", "employee"],
       },
       {
         icon: "/sales.svg",
         label: "Sales",
-        href: "/list/assignments",
-        visible: ["admin", "teacher", "student", "parent"],
+        href: "/list/sales",
+        visible: ["admin", "employee"],
       },
       {
         icon: "/message.svg",
         label: "Messages",
         href: "/list/messages",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
       },
       {
         icon: "/announcement.svg",
         label: "Announcements",
         href: "/list/announcements",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
+      },
+      {
+        icon: "/employee.svg",
+        label: "Employees",
+        href: "/list/employees",
+        visible: ["admin"],
       },
     ],
   },
@@ -63,19 +69,19 @@ const menuItems = [
         icon: "/profile.svg",
         label: "Profile",
         href: "/profile",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
       },
       {
         icon: "/settings.svg",
         label: "Settings",
         href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
       },
       {
         icon: "/logout.svg",
         label: "Logout",
         href: "/logout",
-        visible: ["admin", "teacher", "student", "parent"],
+        visible: ["admin", "employee", "guest"],
       },
     ],
   },
@@ -85,20 +91,24 @@ const Menu = () => {
   return (
     <div className="mt-4 text-sm">
       {menuItems.map((i) => (
-        <div key={i.title} className="flex flex-col gap-2">
+        <div key={i.title} className="flex flex-col gap-2 ">
           <span className="hidden lg:block text-zinc-400 font-light my-4">
             {i.title}
           </span>
-          {i.items.map((item) => (
-            <Link
-              href={"item.href"}
-              key={item.label}
-              className="flex gap-3 items-center justify-center lg:justify-start text-zinc-500 py-2"
-            >
-              <img src={item.icon} alt="" width={20} height={20} />
-              <span className="hidden lg:block">{item.label}</span>
-            </Link>
-          ))}
+          {i.items.map((item) => {
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={"item.href"}
+                  key={item.label}
+                  className="flex gap-3 items-center justify-center lg:justify-start text-zinc-500 p-2 rounded-md  hover:bg-mainOrangeLight cursor-pointer"
+                >
+                  <img src={item.icon} alt="" width={20} height={20} />
+                  <span className="hidden lg:block">{item.label}</span>
+                </Link>
+              );
+            }
+          })}
         </div>
       ))}
     </div>

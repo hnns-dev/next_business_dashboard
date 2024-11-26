@@ -38,10 +38,10 @@ const SmallCalendar = () => {
   return (
     <div className="bg-white p-4 rounded-2xl">
       <Calendar onChange={onChange} value={value} />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mt-4">
         {/* TITLE */}
         <div className="flex justify-between items-center">
-          <h1 className="text-lg font-bold mt-4 ">To Do´s</h1>
+          <h1 className="text-lg font-bold">Tasks</h1>
           <img src="/more.svg" />
         </div>
         {events.map((event) => (
