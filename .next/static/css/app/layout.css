@@ -688,9 +688,6 @@ video {
 .gap-4 {
   gap: 1rem;
 }
-.gap-8 {
-  gap: 2rem;
-}
 .overflow-scroll {
   overflow: scroll;
 }
@@ -867,6 +864,47 @@ video {
   background-color: #d5f2ea !important;
   color: black !important;
   border-radius: 6px !important;
+}
+.rbc-btn-group:first-child {
+  display: none !important;
+}
+
+.rbc-toolbar-label {
+  text-align: right !important;
+  padding: 0px 20px !important;
+}
+
+.rbc-btn-group:last-child button {
+  border: none !important;
+  background-color: #f9dcaf !important;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #f5c37c !important;
+  box-shadow: none !important;
+}
+
+.rbc-time-view {
+  border-color: #eee !important;
+}
+
+.rbc-time-header {
+  display: none !important;
+}
+.rbc-time-content {
+  border: none !important;
+}
+.rbc-time-gutter.rbc-time-column {
+  font-size: smaller !important;
+}
+.rbc-time-gutter.rbc-time-column.rbc-timeslot-group {
+  padding: 0px 20px !important;
+}
+.rbc-timeslot-group {
+  background-color: #d5f2ea !important;
+}
+rbc-eveent {
+  border: none !important;
 }
 .odd\:border-t-mainOrange:nth-child(odd) {
   --tw-border-opacity: 1;
